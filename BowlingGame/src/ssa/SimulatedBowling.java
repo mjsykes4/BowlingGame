@@ -30,7 +30,13 @@ public class SimulatedBowling {
 		  String gameScore = "Game 1|		";
 		  for(int game = 0; game < bowlingScores[0].length; game++) {
 			  totalGameScore1 += bowlingScores[0][game];
-			  gameScore += bowlingScores[0][game] + "\t";
+		//	  gameScore += bowlingScores[0][game] + "\t";
+			  
+			  String c = String.format("%02d", bowlingScores[0][game]);        
+			  c = c.replaceFirst("^0+(?!$)", " ");
+			  
+			  gameScore += c + "\t";
+			  
 		  }
 		  return gameScore + totalGameScore1;
 	  }
@@ -38,7 +44,12 @@ public class SimulatedBowling {
 			  String gameScore = "Game 2|		";
 			  for(int game = 0; game < bowlingScores[1].length; game++) {
 				  totalGameScore2 += bowlingScores[1][game];
-				  gameScore += bowlingScores[1][game] + "\t";
+	//			  gameScore += bowlingScores[1][game] + "\t";
+				  
+				  String c = String.format("%02d", bowlingScores[1][game]);        
+				  c = c.replaceFirst("^0+(?!$)", " ");
+				  
+				  gameScore += c + "\t";
 			  }
 			  return gameScore + totalGameScore2;
 		  }
@@ -46,16 +57,21 @@ public class SimulatedBowling {
 				  String gameScore = "Game 3|		";
 				  for(int game = 0; game < bowlingScores[2].length; game++) {
 					  totalGameScore3 += bowlingScores[2][game];
-					  gameScore += bowlingScores[2][game] + "\t";
+				//	  gameScore += bowlingScores[2][game] + "\t";
+					  
+					  String c = String.format("%02d", bowlingScores[2][game]);        
+					  c = c.replaceFirst("^0+(?!$)", " ");
+					  
+					  gameScore += c + "\t";
 				  }
 				  return gameScore + totalGameScore3;
 			  }
 				private String printTotal() {
-					String totalScore = "Total Series											";
+					String totalScore = "Total Series										       ";
 							return totalScore + (totalGameScore1 + totalGameScore2 + totalGameScore3);
 				}
 			private String print() {
-				return "Frames|		1	2	3	4	5	6	7	8	9	10	Total " + "\n" + displayGame1() + "\n"
+				return "Frames|  	 1  	 2	 3	 4	 5	 6	 7	 8	 9      10   Total " + "\n" + displayGame1() + "\n"
 						+ displayGame2() + "\n" + displayGame3() + "\n" + printTotal();
 			}
 		  
